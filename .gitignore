@@ -1,1 +1,3 @@
 plugins/*.tgz
+src/mac/plugin_utf8.dylib
+*xcuser*
