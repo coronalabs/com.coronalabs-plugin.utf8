@@ -5,8 +5,6 @@
 ## Release
 ProjectName            :=utf8
 ConfigurationName      :=Release
-WorkspacePath          :=/home/vitaly/Documents/plugins
-ProjectPath            :=/home/vitaly/corona.plugins/com.coronalabs-plugin.utf8/src/linux
 IntermediateDirectory  :=./Release
 OutDir                 := $(IntermediateDirectory)
 CurrentFileName        :=
@@ -14,7 +12,6 @@ CurrentFilePath        :=
 CurrentFileFullPath    :=
 User                   :=ubuntu
 Date                   :=26/04/22
-CodeLitePath           :=/home/vitaly/.codelite
 LinkerName             :=/usr/bin/g++
 SharedObjectLinkerName :=/usr/bin/g++ -shared -fPIC
 ObjectSuffix           :=.o
@@ -36,7 +33,7 @@ ObjectsFileList        :="utf8.txt"
 PCHCompileFlags        :=
 MakeDirCommand         :=mkdir -p
 LinkOptions            :=  
-IncludePath            :=  $(IncludeSwitch). $(IncludeSwitch). $(IncludeSwitch)/home/vitaly/corona.plugins/com.coronalabs-plugin.utf8/src/shared 
+IncludePath            :=  $(IncludeSwitch). $(IncludeSwitch). $(IncludeSwitch)../shared 
 IncludePCH             := 
 RcIncludePath          := 
 Libs                   := 
@@ -77,8 +74,8 @@ $(OutputFile): $(IntermediateDirectory)/.d $(Objects)
 	@echo "" > $(IntermediateDirectory)/.d
 	@echo $(Objects0)  > $(ObjectsFileList)
 	$(SharedObjectLinkerName) $(OutputSwitch)$(OutputFile) @$(ObjectsFileList) $(LibPath) $(Libs) $(LinkOptions)
-	@$(MakeDirCommand) "/home/vitaly/Documents/plugins/.build-release"
-	@echo rebuilt > "/home/vitaly/Documents/plugins/.build-release/utf8"
+	@$(MakeDirCommand) "$(HOME)/Documents/plugins/.build-release"
+	@echo rebuilt > "$(HOME)/Documents/plugins/.build-release/utf8"
 
 MakeIntermediateDirs:
 	@test -d ./Release || $(MakeDirCommand) ./Release
@@ -94,7 +91,7 @@ PreBuild:
 ## Objects
 ##
 $(IntermediateDirectory)/up_shared_lutf8lib.c$(ObjectSuffix): ../shared/lutf8lib.c $(IntermediateDirectory)/up_shared_lutf8lib.c$(DependSuffix)
-	$(CC) $(SourceSwitch) "/home/vitaly/corona.plugins/com.coronalabs-plugin.utf8/src/shared/lutf8lib.c" $(CFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/up_shared_lutf8lib.c$(ObjectSuffix) $(IncludePath)
+	$(CC) $(SourceSwitch) "../shared/lutf8lib.c" $(CFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/up_shared_lutf8lib.c$(ObjectSuffix) $(IncludePath)
 $(IntermediateDirectory)/up_shared_lutf8lib.c$(DependSuffix): ../shared/lutf8lib.c
 	@$(CC) $(CFLAGS) $(IncludePath) -MG -MP -MT$(IntermediateDirectory)/up_shared_lutf8lib.c$(ObjectSuffix) -MF$(IntermediateDirectory)/up_shared_lutf8lib.c$(DependSuffix) -MM ../shared/lutf8lib.c
 
